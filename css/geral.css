@@ -1,0 +1,23 @@
+
+#content {
+	min-height: 500px;
+}
+#footer .container {
+	background-color: #696969;
+	padding: 10px 10px 10px 10px;
+	color: #fff;
+	line-height: 1em;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.icone1 {
+	border-radius: 50px;
+	background-color: #1588e0;
+	height: 100px;
+	width: 100px;
+}
