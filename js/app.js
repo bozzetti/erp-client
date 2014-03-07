@@ -1,9 +1,8 @@
 
-function App(server_url) {
-
-    this.server_url = server_url;
+function App() {
+    this.server_url = null;
     this.logged = false;
-    this.updateLayout();
+    //this.updateLayout();
 }
 App.prototype.updateLayout = function() {
 	if(this.logged) {
@@ -24,12 +23,10 @@ App.prototype.login = function() {
 	var pass = $('#password').val();
 	var email = $('#email').val();
 	if(pass != '' && email != '') {
-		$.ajax({
-		  type: "POST",
-		  url: this.server_url + '/api/auth/login',
-		  data: {'email': email, 'pass': pass},
-		  success: this.updateLayout,
-		});
+		$.post(this.server_url + '/api/auth/login', {'email': email, 'pass': pass})
+		  .done(function( data ) {
+		    alert( "Data Loaded: " + data );
+		  });
 	}
 }
 App.prototype.logout = function() {
@@ -37,9 +34,10 @@ App.prototype.logout = function() {
 	alert('deslogado');
 }
 
-var url = 'http://erp-local/';
+//var url = ;
 
 $(document).ready(function() {                
-    var app = new App(url);
-    console.log(app);
+    var appz = new App();
+    App.prototype.server_url = 'http://erp-local';
+    App.prototype.updateLayout();
 });
